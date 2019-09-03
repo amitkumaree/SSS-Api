@@ -15,7 +15,7 @@ namespace DocApi.DataLayer
             using (var connection = MySqlDbConnection.NewConnection)
             {
                 _statement = string.Format(MySQLquery.GetAllDomain);
-                using (var command = MySqlDbConnection.Command(connection, MySQLquery.GetAllDomain))
+                using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
                     using (var reader = command.ExecuteReader())
                     {

@@ -19,7 +19,7 @@ namespace DocApi.DataLayer {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class MySQLquery {
@@ -70,11 +70,57 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN.
+        /// </summary>
+        internal static string GetAllSubDomain {
+            get {
+                return ResourceManager.GetString("GetAllSubDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN WHERE DOM_ID = {0}.
         /// </summary>
         internal static string GetDomain {
             get {
                 return ResourceManager.GetString("GetDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_CATEGORY.
+        /// </summary>
+        internal static string GetQuestionCat {
+            get {
+                return ResourceManager.GetString("GetQuestionCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_ITEM.
+        /// </summary>
+        internal static string GetQuestionItem {
+            get {
+                return ResourceManager.GetString("GetQuestionItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN
+        ///WHERE DOM_ID={0}.
+        /// </summary>
+        internal static string GetSubDomainById {
+            get {
+                return ResourceManager.GetString("GetSubDomainById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM SUB_QUESTION_CATEGORY.
+        /// </summary>
+        internal static string GetSubQuestionCat {
+            get {
+                return ResourceManager.GetString("GetSubQuestionCat", resourceCulture);
             }
         }
     }

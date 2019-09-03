@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,9 @@
     <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ExtDlls\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet">
+      <HintPath>..\ExtDlls\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -91,6 +95,10 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DomainController.cs" />
+    <Compile Include="Controllers\QuestionCategoryController.cs" />
+    <Compile Include="Controllers\QuestionItemController.cs" />
+    <Compile Include="Controllers\SubDomainController.cs" />
+    <Compile Include="Controllers\SubQuestionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataLayer\DomainDL.cs" />
     <Compile Include="DataLayer\MySqlDbConnection.cs" />
@@ -99,11 +107,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MySQLquery.resx</DependentUpon>
     </Compile>
+    <Compile Include="DataLayer\QuestionCategoryDL.cs" />
+    <Compile Include="DataLayer\QuestionItemDL.cs" />
+    <Compile Include="DataLayer\SubDomainDL.cs" />
+    <Compile Include="DataLayer\SubQuestionCategoryDL.cs" />
     <Compile Include="DataLayer\UtilityDL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LogicLayer\DomainLL.cs" />
+    <Compile Include="LogicLayer\QuestionCategoryLL.cs" />
+    <Compile Include="LogicLayer\QuestionItemLL.cs" />
+    <Compile Include="LogicLayer\SubDomainLL.cs" />
+    <Compile Include="LogicLayer\SubQuestionCategoryLL.cs" />
     <Compile Include="Models\DOMAIN.cs" />
     <Compile Include="Models\QUESTION_CATEGORY.cs" />
     <Compile Include="Models\QUESTION_CONTROL.cs" />

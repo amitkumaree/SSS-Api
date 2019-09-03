@@ -120,7 +120,23 @@
   <data name="GetAllDomain" xml:space="preserve">
     <value>SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN</value>
   </data>
+  <data name="GetAllSubDomain" xml:space="preserve">
+    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN</value>
+  </data>
   <data name="GetDomain" xml:space="preserve">
     <value>SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN WHERE DOM_ID = {0}</value>
+  </data>
+  <data name="GetQuestionCat" xml:space="preserve">
+    <value>SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_CATEGORY</value>
+  </data>
+  <data name="GetQuestionItem" xml:space="preserve">
+    <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_ITEM</value>
+  </data>
+  <data name="GetSubDomainById" xml:space="preserve">
+    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN
+WHERE DOM_ID={0}</value>
+  </data>
+  <data name="GetSubQuestionCat" xml:space="preserve">
+    <value>SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM SUB_QUESTION_CATEGORY</value>
   </data>
 </root>
