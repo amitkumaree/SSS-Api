@@ -30,6 +30,13 @@ namespace DocApi.DataLayer
                                 questCat.SUB_DOM_ID = UtilityDL.CheckNull<int>(reader["SUB_DOM_ID"]);
                                 questCat.NAME = UtilityDL.CheckNull<string>(reader["NAME"]);
                                 questCat.DESCRIPTION = UtilityDL.CheckNull<string>(reader["DESCRIPTION"]);
+                                questCat.SEQ_NO = UtilityDL.CheckNull<int>(reader["SEQ_NO"]);
+
+                                questCat.ORGL_STAMP = UtilityDL.CheckNull<DateTime>(reader["ORGL_STAMP"]);
+                                questCat.ORGL_USER = UtilityDL.CheckNull<string>(reader["ORGL_USER"]);
+                                questCat.UPDT_STAMP = UtilityDL.CheckNull<DateTime>(reader["UPDT_STAMP"]);
+                                questCat.UPDT_USER = UtilityDL.CheckNull<string>(reader["UPDT_USER"]);
+                                questCat.DEL_FLG = UtilityDL.CheckNull<string>(reader["DEL_FLG"]);
 
                                 questionCategory.Add(questCat);
                             }

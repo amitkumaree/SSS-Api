@@ -30,6 +30,12 @@ namespace DocApi.DataLayer
                                 subDomain.NAME = UtilityDL.CheckNull<string>(reader["NAME"]);
                                 subDomain.DESCRIPTION = UtilityDL.CheckNull<string>(reader["DESCRIPTION"]);
 
+                                subDomain.ORGL_STAMP = UtilityDL.CheckNull<DateTime>(reader["ORGL_STAMP"]);
+                                subDomain.ORGL_USER = UtilityDL.CheckNull<string>(reader["ORGL_USER"]);
+                                subDomain.UPDT_STAMP = UtilityDL.CheckNull<DateTime>(reader["UPDT_STAMP"]);
+                                subDomain.UPDT_USER = UtilityDL.CheckNull<string>(reader["UPDT_USER"]);
+                                subDomain.DEL_FLG = UtilityDL.CheckNull<string>(reader["DEL_FLG"]);
+
                                 subDomains.Add(subDomain);
                             }
                         }

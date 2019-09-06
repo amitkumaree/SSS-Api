@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DocApi.Models
 {
-    public sealed class DOMAIN
+    public sealed class DOMAIN : ParentModel
     {
         public string NAME { get; set; }
         public string DESCRIPTION { get; set; }

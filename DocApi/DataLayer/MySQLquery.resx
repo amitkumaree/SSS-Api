@@ -118,25 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GetAllDomain" xml:space="preserve">
-    <value>SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN</value>
+    <value>SELECT DOM_ID,NAME,DESCRIPTION,ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN</value>
   </data>
   <data name="GetAllSubDomain" xml:space="preserve">
-    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN</value>
+    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM SUB_DOMAIN</value>
+  </data>
+  <data name="GetControlMaster" xml:space="preserve">
+    <value>SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER</value>
   </data>
   <data name="GetDomain" xml:space="preserve">
-    <value>SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN WHERE DOM_ID = {0}</value>
+    <value>SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}</value>
   </data>
   <data name="GetQuestionCat" xml:space="preserve">
-    <value>SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_CATEGORY</value>
+    <value>SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY</value>
+  </data>
+  <data name="GetQuestionControl" xml:space="preserve">
+    <value>SELECT QCT_ID, QI_ID ,SQC_ID,QC_ID, DOM_ID ,SUB_DOM_ID ,NAME ,LABEL, HINT ,OTHDESC ,LISTOFVAL ,CONTROL_ID ,SEQ_NO ,DEL_FLG ,ORGL_USER ,ORGL_STAMP, UPDT_USER ,UPDT_STAMP FROM QUESTION_CONTROL;</value>
   </data>
   <data name="GetQuestionItem" xml:space="preserve">
-    <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_ITEM</value>
+    <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM</value>
   </data>
   <data name="GetSubDomainById" xml:space="preserve">
-    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN
+    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM SUB_DOMAIN
 WHERE DOM_ID={0}</value>
   </data>
   <data name="GetSubQuestionCat" xml:space="preserve">
-    <value>SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM SUB_QUESTION_CATEGORY</value>
+    <value>SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION , SEQ_NO , ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM SUB_QUESTION_CATEGORY</value>
+  </data>
+  <data name="InsertDomain" xml:space="preserve">
+    <value>INSERT INTO DOMAIN(DOM_ID, NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4} , {5})</value>
   </data>
 </root>

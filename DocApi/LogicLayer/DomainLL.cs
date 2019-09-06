@@ -19,5 +19,11 @@ namespace DocApi.LogicLayer
         {
             return _dac.GetDomain(id);
         }
+
+        internal void InsertDomain(DOMAIN dm)
+        {
+             _dac.InsertDomain( dm);
+        }
+
     }
 }

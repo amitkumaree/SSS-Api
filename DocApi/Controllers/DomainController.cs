@@ -9,6 +9,8 @@ using System.Web.Http;
 
 namespace DocApi.Controllers
 {
+    // [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors()]
     public class DomainController : ApiController
     {
         DomainLL _logicLayer = new DomainLL();
@@ -25,8 +27,10 @@ namespace DocApi.Controllers
         }
 
         // POST: api/Domain
-        public void Post([FromBody]string value)
+        //[HttpPost]
+        public void Post([FromBody] DOMAIN dm)
         {
+             _logicLayer.InsertDomain(dm);
         }
 
         // PUT: api/Domain/5

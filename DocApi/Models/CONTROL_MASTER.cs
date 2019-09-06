@@ -5,21 +5,18 @@ using System.Web;
 
 namespace DocApi.Models
 {
-    public sealed class SUB_QUESTION_CATEGORY
+    public sealed class CONTROL_MASTER
     {
+        public string CONTROL_TYP { get; set; }
         public string NAME { get; set; }
-        public string DESCRIPTION { get; set; }
+        public string LABEL { get; set; }
+        public string SAMPLE_PIC { get; set; }
         public string DEL_FLG { get; set; }
         public string ORGL_USER { get; set; }
         public string UPDT_USER { get; set; }
-        public int? SQC_ID { get; set; }
-        public int? QC_ID { get; set; }
-        public int? DOM_ID { get; set; }
-        public int? SUB_DOM_ID { get; set; }
-        public int? SEQ_NO { get; set; }
+        public int? CM_ID { get; set; }
         public DateTime? ORGL_STAMP { get; set; }
         public DateTime? UPDT_STAMP { get; set; }
 
     }
-
 }

@@ -61,7 +61,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN.
+        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION,ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN.
         /// </summary>
         internal static string GetAllDomain {
             get {
@@ -70,7 +70,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN.
+        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM SUB_DOMAIN.
         /// </summary>
         internal static string GetAllSubDomain {
             get {
@@ -79,7 +79,16 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION FROM DOMAIN WHERE DOM_ID = {0}.
+        ///   Looks up a localized string similar to SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER.
+        /// </summary>
+        internal static string GetControlMaster {
+            get {
+                return ResourceManager.GetString("GetControlMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}.
         /// </summary>
         internal static string GetDomain {
             get {
@@ -88,7 +97,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_CATEGORY.
+        ///   Looks up a localized string similar to SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY.
         /// </summary>
         internal static string GetQuestionCat {
             get {
@@ -97,7 +106,16 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM QUESTION_ITEM.
+        ///   Looks up a localized string similar to SELECT QCT_ID, QI_ID ,SQC_ID,QC_ID, DOM_ID ,SUB_DOM_ID ,NAME ,LABEL, HINT ,OTHDESC ,LISTOFVAL ,CONTROL_ID ,SEQ_NO ,DEL_FLG ,ORGL_USER ,ORGL_STAMP, UPDT_USER ,UPDT_STAMP FROM QUESTION_CONTROL;.
+        /// </summary>
+        internal static string GetQuestionControl {
+            get {
+                return ResourceManager.GetString("GetQuestionControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM.
         /// </summary>
         internal static string GetQuestionItem {
             get {
@@ -106,7 +124,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION FROM SUB_DOMAIN
+        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM SUB_DOMAIN
         ///WHERE DOM_ID={0}.
         /// </summary>
         internal static string GetSubDomainById {
@@ -116,11 +134,20 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION FROM SUB_QUESTION_CATEGORY.
+        ///   Looks up a localized string similar to SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION , SEQ_NO , ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM SUB_QUESTION_CATEGORY.
         /// </summary>
         internal static string GetSubQuestionCat {
             get {
                 return ResourceManager.GetString("GetSubQuestionCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO DOMAIN(DOM_ID, NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4} , {5}).
+        /// </summary>
+        internal static string InsertDomain {
+            get {
+                return ResourceManager.GetString("InsertDomain", resourceCulture);
             }
         }
     }
