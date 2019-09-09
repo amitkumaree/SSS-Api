@@ -15,6 +15,22 @@ namespace DocApi.LogicLayer
             return _dac.GetAllControlMaster();
         }
 
-        
+        internal void InsertControlMaster(CONTROL_MASTER cm)
+        {
+            _dac.InsertControlMaster(cm);
+        }
+
+
+        internal void UpdateControlMaster(CONTROL_MASTER cm)
+        {
+            _dac.UpdateControlMaster(cm);
+        }
+
+
+        internal void DeleteControlMaster(int cmId)
+        {
+            _dac.DeleteControlMaster(cmId);
+        }
+
     }
 }

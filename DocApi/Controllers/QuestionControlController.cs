@@ -10,30 +10,28 @@ namespace DocApi.Controllers
     {
         QuestionControlLL _logicLayer = new QuestionControlLL();
         // GET: api/Domain
-        public List<QUESTION_CONTROL> Get()
+        public List<QUESTION_CONTROL> Get(int id)
         {
-            return _logicLayer.GetAllQuestionControl();
+            return _logicLayer.GetAllQuestionControl(id);
         }
 
-        // GET: api/Domain/5
-        public QUESTION_CONTROL Get(int id)
-        {
-            return null;
-        }
-
+        
         // POST: api/Domain
-        public void Post([FromBody]string value)
+        public void Post([FromBody]QUESTION_CONTROL qc)
         {
+            _logicLayer.InsertQuestionControl(qc);
         }
 
         // PUT: api/Domain/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]QUESTION_CONTROL qc)
         {
+            _logicLayer.UpdateQuestionControl(qc);
         }
 
         // DELETE: api/Domain/5
         public void Delete(int id)
         {
+            _logicLayer.DeleteQuestionControl(id);
         }
     }
 }

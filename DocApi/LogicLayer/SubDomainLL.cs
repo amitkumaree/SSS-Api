@@ -15,9 +15,27 @@ namespace DocApi.LogicLayer
             return _dac.GetAllSubDomains();
         }
 
-        internal SUB_DOMAIN GetSubDomain(int id)
+        internal List<SUB_DOMAIN> GetSubDomain(int id)
         {
             return _dac.GetSubDomain(id);
         }
+
+        internal void InsertSubDomain(SUB_DOMAIN sd)
+        {
+            _dac.InsertSubDomain(sd);
+        }
+
+
+        internal void UpdateSubDomain(SUB_DOMAIN sd)
+        {
+            _dac.UpdateSubDomain(sd);
+        }
+
+
+        internal void DeleteSubDomain(int qiId)
+        {
+            _dac.DeleteSubDomain(qiId);
+        }
+
     }
 }

@@ -117,35 +117,98 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DeleteControlMaster" xml:space="preserve">
+    <value>UPDATE CONTROL_MASTER SET DEL_FLG='Y' WHERE  CM_ID= {0}</value>
+  </data>
+  <data name="DeleteDomain" xml:space="preserve">
+    <value>UPDATE DOMAIN SET DEL_FLG='Y' WHERE DOM_ID={0}</value>
+  </data>
+  <data name="DeleteQuestionCategory" xml:space="preserve">
+    <value>UPDATE QUESTION_CATEGORY SET DEL_FLG='Y' WHERE  QC_ID={0}</value>
+  </data>
+  <data name="DeleteQuestionControl" xml:space="preserve">
+    <value>UPDATE QUESTION_CONTROL SET DEL_FLG='Y' WHERE  QCT_ID= {0}</value>
+  </data>
+  <data name="DeleteQuestionItem" xml:space="preserve">
+    <value>UPDATE QUESTION_ITEM SET DEL_FLG='Y' WHERE  QI_ID= {0}</value>
+  </data>
+  <data name="DeleteSubDomain" xml:space="preserve">
+    <value>UPDATE SUB_DOMAIN SET DEL_FLG='Y' WHERE  SUB_DOM_ID={0}</value>
+  </data>
+  <data name="DeleteSubQuestionCategory" xml:space="preserve">
+    <value>UPDATE SUB_QUESTION_CATEGORY SET DEL_FLG='Y' WHERE  SQC_ID= {0}</value>
+  </data>
   <data name="GetAllDomain" xml:space="preserve">
-    <value>SELECT DOM_ID,NAME,DESCRIPTION,ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN</value>
+    <value>SELECT DOM_ID,NAME,DESCRIPTION,ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN   WHERE DEL_FLG='N'</value>
   </data>
   <data name="GetAllSubDomain" xml:space="preserve">
-    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM SUB_DOMAIN</value>
+    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM SUB_DOMAIN  WHERE DEL_FLG='N'</value>
   </data>
   <data name="GetControlMaster" xml:space="preserve">
-    <value>SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER</value>
+    <value>SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER WHERE DEL_FLG='N'</value>
   </data>
   <data name="GetDomain" xml:space="preserve">
-    <value>SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}</value>
+    <value>SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}  AND DEL_FLG='N'</value>
   </data>
   <data name="GetQuestionCat" xml:space="preserve">
-    <value>SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY</value>
+    <value>SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY WHERE  SUB_DOM_ID={0} AND DEL_FLG='N'</value>
+  </data>
+  <data name="GetQuestionCatBySubDomId" xml:space="preserve">
+    <value>SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY WHERE SUB_DOM_ID={0}</value>
   </data>
   <data name="GetQuestionControl" xml:space="preserve">
-    <value>SELECT QCT_ID, QI_ID ,SQC_ID,QC_ID, DOM_ID ,SUB_DOM_ID ,NAME ,LABEL, HINT ,OTHDESC ,LISTOFVAL ,CONTROL_ID ,SEQ_NO ,DEL_FLG ,ORGL_USER ,ORGL_STAMP, UPDT_USER ,UPDT_STAMP FROM QUESTION_CONTROL;</value>
+    <value>SELECT QCT_ID, QI_ID ,SQC_ID,QC_ID, DOM_ID ,SUB_DOM_ID ,NAME ,LABEL, HINT ,OTHDESC ,LISTOFVAL ,CONTROL_ID ,SEQ_NO ,DEL_FLG ,ORGL_USER ,ORGL_STAMP, UPDT_USER ,UPDT_STAMP FROM QUESTION_CONTROL WHERE QI_ID={0}  AND DEL_FLG='N'</value>
   </data>
   <data name="GetQuestionItem" xml:space="preserve">
-    <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM</value>
+    <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM WHERE  SQC_ID={0}  AND DEL_FLG='N'</value>
   </data>
-  <data name="GetSubDomainById" xml:space="preserve">
-    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM SUB_DOMAIN
-WHERE DOM_ID={0}</value>
+  <data name="GetSubDomainByDomId" xml:space="preserve">
+    <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM SUB_DOMAIN
+WHERE DOM_ID={0} AND DEL_FLG='N'</value>
   </data>
   <data name="GetSubQuestionCat" xml:space="preserve">
-    <value>SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION , SEQ_NO , ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM SUB_QUESTION_CATEGORY</value>
+    <value>SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION , SEQ_NO , ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM SUB_QUESTION_CATEGORY WHERE QC_ID={0} AND DEL_FLG='N'</value>
+  </data>
+  <data name="InsertControlMaster" xml:space="preserve">
+    <value>INSERT INTO CONTROL_MASTER ( CONTROL_TYP,NAME,  LABEL , SAMPLE_PIC , DEL_FLG  ,  ORGL_USER, ORGL_STAMP  ) VALUES(  {0} , {1} , {2},  {3} , {4} , {5}, {6})</value>
   </data>
   <data name="InsertDomain" xml:space="preserve">
-    <value>INSERT INTO DOMAIN(DOM_ID, NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4} , {5})</value>
+    <value>INSERT INTO DOMAIN(NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4})</value>
+  </data>
+  <data name="InsertQuestionCategory" xml:space="preserve">
+    <value>INSERT INTO QUESTION_CATEGORY (DOM_ID , SUB_DOM_ID ,NAME , DESCRIPTION , SEQ_NO, DEL_FLG , ORGL_USER , ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7})</value>
+  </data>
+  <data name="InsertQuestionControl" xml:space="preserve">
+    <value>INSERT INTO QUESTION_CONTROL ( QI_ID , SQC_ID , QC_ID , DOM_ID , SUB_DOM_ID , NAME , LABEL , HINT , OTHDESC , LISTOFVAL , CONTROL_ID , SEQ_NO , DEL_FLG , ORGL_USER, ORGL_STAMP) VALUES(  {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}, {8} , {9} ,{10} , {11} ,{12}, {13}, {14})</value>
+  </data>
+  <data name="InsertQuestionItem" xml:space="preserve">
+    <value>INSERT INTO QUESTION_ITEM ( SQC_ID , QC_ID	,  DOM_ID , SUB_DOM_ID , NAME , DESCRIPTION , SEQ_NO , DEL_FLG , ORGL_USER , ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}, {8} , {9} )</value>
+  </data>
+  <data name="InsertSubDomain" xml:space="preserve">
+    <value>INSERT INTO SUB_DOMAIN (DOM_ID, NAME , DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5})</value>
+  </data>
+  <data name="InsertSubQuestionCategory" xml:space="preserve">
+    <value>INSERT INTO SUB_QUESTION_CATEGORY ( QC_ID , DOM_ID , SUB_DOM_ID , NAME , DESCRIPTION , SEQ_NO , DEL_FLG , ORGL_USER , ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}, {8} )</value>
+  </data>
+  <data name="UpdateControlMaster" xml:space="preserve">
+    <value>UPDATE CONTROL_MASTER SET CONTROL_TYP={0} ,  NAME={1} , LABEL={2} , SAMPLE_PIC={3} , UPDT_USER={4} , UPDT_STAMP={5} WHERE  CM_ID={6}</value>
+  </data>
+  <data name="UpdateDomain" xml:space="preserve">
+    <value>UPDATE DOMAIN SET NAME={0}   , DESCRIPTION={1}, UPDT_USER={2}  , UPDT_STAMP={3} WHERE  DOM_ID={4}</value>
+  </data>
+  <data name="UpdateQuestionCategory" xml:space="preserve">
+    <value>UPDATE QUESTION_CATEGORY SET DOM_ID={0} , SUB_DOM_ID={1} , NAME={2} , DESCRIPTION={3} , SEQ_NO={4} , UPDT_USER={5} , UPDT_STAMP={6} WHERE  QC_ID={7}</value>
+  </data>
+  <data name="UpdateQuestionControl" xml:space="preserve">
+    <value>UPDATE QUESTION_CONTROL SET QI_ID={0} , SQC_ID={1} , QC_ID={2} , DOM_ID={3} , SUB_DOM_ID={4} , NAME={5} , LABEL={6} , HINT={7} , OTHDESC={8} , LISTOFVAL={9} , CONTROL_ID={10} , SEQ_NO={11} , UPDT_USER={12} , UPDT_STAMP={13} WHERE  QCT_ID={14}</value>
+  </data>
+  <data name="UpdateQuestionItem" xml:space="preserve">
+    <value>UPDATE QUESTION_ITEM SET SQC_ID={0} , QC_ID={1} , DOM_ID={2} , SUB_DOM_ID={3} , NAME={4} , DESCRIPTION={5} , SEQ_NO={6} , UPDT_USER={7} , UPDT_STAMP={8} WHERE  QI_ID={9}</value>
+  </data>
+  <data name="UpdateSubDomain" xml:space="preserve">
+    <value>UPDATE SUB_DOMAIN SET DOM_ID={0} , NAME={1} , DESCRIPTION={2} , UPDT_USER={3} , UPDT_STAMP={4} WHERE  SUB_DOM_ID={5}</value>
+  </data>
+  <data name="UpdateSubQuestionCategory" xml:space="preserve">
+    <value>UPDATE SUB_QUESTION_CATEGORY SET QC_ID={0} , DOM_ID={1} , SUB_DOM_ID={2} , NAME={3} , DESCRIPTION={4} , SEQ_NO={5} , UPDT_USER={6} , UPDT_STAMP={7} WHERE  SQC_ID={8}</value>
   </data>
 </root>

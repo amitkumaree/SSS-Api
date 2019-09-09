@@ -9,12 +9,12 @@ namespace DocApi.DataLayer
     internal sealed class SubQuestionCategoryDL
     {
         string _statement;
-        internal List<SUB_QUESTION_CATEGORY> GetAllSubQuestionCategory()
+        internal List<SUB_QUESTION_CATEGORY> GetAllSubQuestionCategory(int qcId)
         {
             var SubQuestionCategory = new List<SUB_QUESTION_CATEGORY>();
             using (var connection = MySqlDbConnection.NewConnection)
             {
-                _statement = string.Format(MySQLquery.GetSubQuestionCat);
+                _statement = string.Format(MySQLquery.GetSubQuestionCat, qcId);
                 using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
                     using (var reader = command.ExecuteReader())
@@ -49,5 +49,80 @@ namespace DocApi.DataLayer
             }
 
         }
+
+
+        internal void InsertSubQuestionCategory(SUB_QUESTION_CATEGORY sqc)
+        {
+            using (var connection = MySqlDbConnection.NewConnection)
+            {
+                _statement = string.Format(MySQLquery.InsertSubQuestionCategory,
+                                          sqc.QC_ID.Value ,
+                                          sqc.DOM_ID.Value ,
+                                          sqc.SUB_DOM_ID.Value ,
+                                          string.Concat("'", sqc.NAME, "'"),
+                                          string.Concat("'", sqc.DESCRIPTION, "'"),
+                                          sqc.SEQ_NO.Value,
+                                          string.Concat("'", string.IsNullOrWhiteSpace(sqc.DEL_FLG) ? "N" : sqc.DEL_FLG, "'"), //dm.DEL_FLG
+                                          string.Concat("'", string.IsNullOrWhiteSpace(sqc.ORGL_USER) ? "ADMIN" : sqc.ORGL_USER, "'"),
+                                          "SYSDATE()"
+                                          );
+
+
+
+                using (var command = MySqlDbConnection.Command(connection, _statement))
+                {
+                    command.ExecuteNonQuery();
+
+                }
+
+
+            }
+        }
+
+        internal void UpdateSubQuestionCategory(SUB_QUESTION_CATEGORY sqc)
+        {
+            using (var connection = MySqlDbConnection.NewConnection)
+            {
+                _statement = string.Format(MySQLquery.UpdateSubQuestionCategory ,
+                                          sqc.QC_ID.HasValue ?  Convert.ToString(sqc.QC_ID.Value) : "QC_ID" ,
+                                          sqc.DOM_ID.HasValue ?  Convert.ToString(sqc.DOM_ID.Value) : "DOM_ID" ,
+                                          sqc.SUB_DOM_ID.HasValue ? Convert.ToString(sqc.SUB_DOM_ID.Value) : "SUB_DOM_ID" ,
+                                          string.IsNullOrWhiteSpace(sqc.NAME) ? "NAME" : string.Concat("'", sqc.NAME, "'"),
+                                          string.IsNullOrWhiteSpace(sqc.DESCRIPTION) ? "DESCRIPTION" : string.Concat("'", sqc.DESCRIPTION, "'"),
+                                          string.IsNullOrWhiteSpace(Convert.ToString(sqc.SEQ_NO.Value)) ? "SEQ_NO" : Convert.ToString(sqc.SEQ_NO.Value),
+                                          string.IsNullOrWhiteSpace(sqc.UPDT_USER) ? "UPDT_USER" : string.Concat("'", sqc.UPDT_USER, "'"),
+                                          "SYSDATE()",
+                                          sqc.SQC_ID.Value
+                                          );
+
+                using (var command = MySqlDbConnection.Command(connection, _statement))
+                {
+                    command.ExecuteNonQuery();
+
+                }
+
+
+            }
+        }
+
+
+        internal void DeleteSubQuestionCategory(int subQustCat)
+        {
+            using (var connection = MySqlDbConnection.NewConnection)
+            {
+                _statement = string.Format(MySQLquery.DeleteSubQuestionCategory,
+                                          subQustCat
+                                          );
+
+                using (var command = MySqlDbConnection.Command(connection, _statement))
+                {
+                    command.ExecuteNonQuery();
+
+                }
+
+
+            }
+        }
+
     }
 }

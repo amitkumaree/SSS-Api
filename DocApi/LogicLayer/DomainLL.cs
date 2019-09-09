@@ -25,5 +25,18 @@ namespace DocApi.LogicLayer
              _dac.InsertDomain( dm);
         }
 
+
+        internal void UpdateDomain(DOMAIN dm)
+        {
+            _dac.UpdateDomain(dm);
+        }
+
+
+        internal void DeleteDomain(int dmId)
+        {
+            _dac.DeleteDomain(dmId);
+        }
+
+
     }
 }

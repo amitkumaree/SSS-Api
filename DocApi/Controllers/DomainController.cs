@@ -7,9 +7,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
 namespace DocApi.Controllers
 {
-    // [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     //[EnableCors()]
     public class DomainController : ApiController
     {
@@ -28,19 +29,21 @@ namespace DocApi.Controllers
 
         // POST: api/Domain
         //[HttpPost]
-        public void Post([FromBody] DOMAIN dm)
+        public void Post([FromBody] DOMAIN dm) //For Insert
         {
              _logicLayer.InsertDomain(dm);
         }
 
         // PUT: api/Domain/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody] DOMAIN dm) //, [FromBody]string value) //For Update
         {
+            _logicLayer.UpdateDomain(dm);
         }
 
         // DELETE: api/Domain/5
         public void Delete(int id)
         {
+            _logicLayer.DeleteDomain(id);
         }
     }
 }

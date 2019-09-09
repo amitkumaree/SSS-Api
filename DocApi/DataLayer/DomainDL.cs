@@ -81,12 +81,11 @@ namespace DocApi.DataLayer
             using (var connection = MySqlDbConnection.NewConnection)
             {
                 _statement = string.Format(MySQLquery.InsertDomain,
-                                          dm.DOM_ID,
                                           string.Concat("'", dm.NAME, "'"),
                                           string.Concat("'", dm.DESCRIPTION, "'"),
-                                          string.Concat("'", dm.DEL_FLG, "'"),
-                                          string.Concat("'", dm.ORGL_USER, "'"),
-                                          string.Concat("'", "SYSDATE()", "'")
+                                          string.Concat("'", string.IsNullOrWhiteSpace(dm.DEL_FLG) ? "N" : dm.DEL_FLG , "'"), //dm.DEL_FLG
+                                          string.Concat("'", string.IsNullOrWhiteSpace(dm.ORGL_USER) ? "ADMIN" : dm.ORGL_USER, "'"),
+                                           "SYSDATE()"
                                           );
                 using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
@@ -97,5 +96,47 @@ namespace DocApi.DataLayer
 
             }
         }
+
+        internal void UpdateDomain(DOMAIN dm)
+        {
+            using (var connection = MySqlDbConnection.NewConnection)
+            {
+                //var str = MySQLquery.UpdateDomain;
+                _statement = string.Format(MySQLquery.UpdateDomain,
+                                          string.IsNullOrWhiteSpace(dm.NAME) ? "NAME" : string.Concat("'", dm.NAME, "'"),
+                                          string.IsNullOrWhiteSpace(dm.DESCRIPTION) ? "DESCRIPTION" : string.Concat("'", dm.DESCRIPTION, "'"),
+                                          string.IsNullOrWhiteSpace(dm.UPDT_USER) ? "UPDT_USER" : string.Concat("'", dm.UPDT_USER, "'"),
+                                          "SYSDATE()",
+                                          dm.DOM_ID.Value
+                                          );
+
+                using (var command = MySqlDbConnection.Command(connection, _statement))
+                {
+                    command.ExecuteNonQuery();
+
+                }
+
+
+            }
+        }
+
+        internal void DeleteDomain(int domId)
+        {
+            using (var connection = MySqlDbConnection.NewConnection)
+            {
+                _statement = string.Format(MySQLquery.DeleteDomain,
+                                          domId
+                                          );
+
+                using (var command = MySqlDbConnection.Command(connection, _statement))
+                {
+                    command.ExecuteNonQuery();
+
+                }
+
+
+            }
+        }
+
     }
 }

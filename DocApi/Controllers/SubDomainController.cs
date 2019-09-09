@@ -18,22 +18,26 @@ namespace DocApi.Controllers
         // GET: api/Domain/5
         public SUB_DOMAIN Get(int id)
         {
-            return _logicLayer.GetSubDomain(id);
+            // return _logicLayer.GetSubDomain(id);
+            return null;
         }
 
         // POST: api/Domain
-        public void Post([FromBody]string value)
+        public void Post([FromBody]SUB_DOMAIN sd)
         {
+            _logicLayer.InsertSubDomain(sd);
         }
 
         // PUT: api/Domain/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]SUB_DOMAIN sd)
         {
+            _logicLayer.UpdateSubDomain(sd);
         }
 
         // DELETE: api/Domain/5
         public void Delete(int id)
         {
+            _logicLayer.DeleteSubDomain(id);
         }
     }
 }

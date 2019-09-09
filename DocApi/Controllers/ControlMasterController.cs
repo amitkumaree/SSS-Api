@@ -22,18 +22,21 @@ namespace DocApi.Controllers
         }
 
         // POST: api/Domain
-        public void Post([FromBody]string value)
+        public void Post([FromBody]CONTROL_MASTER cm)
         {
+            _logicLayer.InsertControlMaster(cm);
         }
 
         // PUT: api/Domain/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]CONTROL_MASTER cm)
         {
+            _logicLayer.UpdateControlMaster(cm);
         }
 
         // DELETE: api/Domain/5
         public void Delete(int id)
         {
+            _logicLayer.DeleteControlMaster(id);
         }
     }
 }

@@ -10,30 +10,27 @@ namespace DocApi.Controllers
     {
         QuestionCategoryLL _logicLayer = new QuestionCategoryLL();
         // GET: api/Domain
-        public List<QUESTION_CATEGORY> Get()
+        public List<QUESTION_CATEGORY> Get(int id)
         {
-            return _logicLayer.GetAllQuestionCategory();
-        }
-
-        // GET: api/Domain/5
-        public QUESTION_CATEGORY Get(int id)
-        {
-            return null;
+            return _logicLayer.GetAllQuestionCategory(id);
         }
 
         // POST: api/Domain
-        public void Post([FromBody]string value)
+        public void Post([FromBody]QUESTION_CATEGORY qc) //insert 
         {
+            _logicLayer.InsertQuestionCategory(qc);
         }
 
         // PUT: api/Domain/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]QUESTION_CATEGORY qc) //update
         {
+            _logicLayer.UpdateQuestionCategory(qc);
         }
 
         // DELETE: api/Domain/5
         public void Delete(int id)
         {
+            _logicLayer.DeleteQuestionCategory(id);
         }
     }
 }

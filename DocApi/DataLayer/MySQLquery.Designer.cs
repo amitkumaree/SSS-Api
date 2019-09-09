@@ -61,7 +61,70 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION,ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN.
+        ///   Looks up a localized string similar to UPDATE CONTROL_MASTER SET DEL_FLG=&apos;Y&apos; WHERE  CM_ID= {0}.
+        /// </summary>
+        internal static string DeleteControlMaster {
+            get {
+                return ResourceManager.GetString("DeleteControlMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE DOMAIN SET DEL_FLG=&apos;Y&apos; WHERE DOM_ID={0}.
+        /// </summary>
+        internal static string DeleteDomain {
+            get {
+                return ResourceManager.GetString("DeleteDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE QUESTION_CATEGORY SET DEL_FLG=&apos;Y&apos; WHERE  QC_ID={0}.
+        /// </summary>
+        internal static string DeleteQuestionCategory {
+            get {
+                return ResourceManager.GetString("DeleteQuestionCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE QUESTION_CONTROL SET DEL_FLG=&apos;Y&apos; WHERE  QCT_ID= {0}.
+        /// </summary>
+        internal static string DeleteQuestionControl {
+            get {
+                return ResourceManager.GetString("DeleteQuestionControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE QUESTION_ITEM SET DEL_FLG=&apos;Y&apos; WHERE  QI_ID= {0}.
+        /// </summary>
+        internal static string DeleteQuestionItem {
+            get {
+                return ResourceManager.GetString("DeleteQuestionItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE SUB_DOMAIN SET DEL_FLG=&apos;Y&apos; WHERE  SUB_DOM_ID={0}.
+        /// </summary>
+        internal static string DeleteSubDomain {
+            get {
+                return ResourceManager.GetString("DeleteSubDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE SUB_QUESTION_CATEGORY SET DEL_FLG=&apos;Y&apos; WHERE  SQC_ID= {0}.
+        /// </summary>
+        internal static string DeleteSubQuestionCategory {
+            get {
+                return ResourceManager.GetString("DeleteSubQuestionCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION,ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN   WHERE DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetAllDomain {
             get {
@@ -70,7 +133,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM SUB_DOMAIN.
+        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM SUB_DOMAIN  WHERE DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetAllSubDomain {
             get {
@@ -79,7 +142,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER.
+        ///   Looks up a localized string similar to SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER WHERE DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetControlMaster {
             get {
@@ -88,7 +151,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}.
+        ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}  AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetDomain {
             get {
@@ -97,7 +160,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY.
+        ///   Looks up a localized string similar to SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY WHERE  SUB_DOM_ID={0} AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetQuestionCat {
             get {
@@ -106,7 +169,16 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT QCT_ID, QI_ID ,SQC_ID,QC_ID, DOM_ID ,SUB_DOM_ID ,NAME ,LABEL, HINT ,OTHDESC ,LISTOFVAL ,CONTROL_ID ,SEQ_NO ,DEL_FLG ,ORGL_USER ,ORGL_STAMP, UPDT_USER ,UPDT_STAMP FROM QUESTION_CONTROL;.
+        ///   Looks up a localized string similar to SELECT QC_ID , DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION,ORGL_USER, SEQ_NO ,ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM QUESTION_CATEGORY WHERE SUB_DOM_ID={0}.
+        /// </summary>
+        internal static string GetQuestionCatBySubDomId {
+            get {
+                return ResourceManager.GetString("GetQuestionCatBySubDomId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT QCT_ID, QI_ID ,SQC_ID,QC_ID, DOM_ID ,SUB_DOM_ID ,NAME ,LABEL, HINT ,OTHDESC ,LISTOFVAL ,CONTROL_ID ,SEQ_NO ,DEL_FLG ,ORGL_USER ,ORGL_STAMP, UPDT_USER ,UPDT_STAMP FROM QUESTION_CONTROL WHERE QI_ID={0}  AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetQuestionControl {
             get {
@@ -115,7 +187,7 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM.
+        ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM WHERE  SQC_ID={0}  AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetQuestionItem {
             get {
@@ -124,17 +196,17 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM SUB_DOMAIN
-        ///WHERE DOM_ID={0}.
+        ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM SUB_DOMAIN
+        ///WHERE DOM_ID={0} AND DEL_FLG=&apos;N&apos;.
         /// </summary>
-        internal static string GetSubDomainById {
+        internal static string GetSubDomainByDomId {
             get {
-                return ResourceManager.GetString("GetSubDomainById", resourceCulture);
+                return ResourceManager.GetString("GetSubDomainByDomId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION , SEQ_NO , ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM SUB_QUESTION_CATEGORY.
+        ///   Looks up a localized string similar to SELECT SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION , SEQ_NO , ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP, DEL_FLG FROM SUB_QUESTION_CATEGORY WHERE QC_ID={0} AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetSubQuestionCat {
             get {
@@ -143,11 +215,128 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO DOMAIN(DOM_ID, NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4} , {5}).
+        ///   Looks up a localized string similar to INSERT INTO CONTROL_MASTER ( CONTROL_TYP,NAME,  LABEL , SAMPLE_PIC , DEL_FLG  ,  ORGL_USER, ORGL_STAMP  ) VALUES(  {0} , {1} , {2},  {3} , {4} , {5}, {6}).
+        /// </summary>
+        internal static string InsertControlMaster {
+            get {
+                return ResourceManager.GetString("InsertControlMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO DOMAIN(NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4}).
         /// </summary>
         internal static string InsertDomain {
             get {
                 return ResourceManager.GetString("InsertDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO QUESTION_CATEGORY (DOM_ID , SUB_DOM_ID ,NAME , DESCRIPTION , SEQ_NO, DEL_FLG , ORGL_USER , ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}).
+        /// </summary>
+        internal static string InsertQuestionCategory {
+            get {
+                return ResourceManager.GetString("InsertQuestionCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO QUESTION_CONTROL ( QI_ID , SQC_ID , QC_ID , DOM_ID , SUB_DOM_ID , NAME , LABEL , HINT , OTHDESC , LISTOFVAL , CONTROL_ID , SEQ_NO , DEL_FLG , ORGL_USER, ORGL_STAMP) VALUES(  {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}, {8} , {9} ,{10} , {11} ,{12}, {13}, {14}).
+        /// </summary>
+        internal static string InsertQuestionControl {
+            get {
+                return ResourceManager.GetString("InsertQuestionControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO QUESTION_ITEM ( SQC_ID , QC_ID	,  DOM_ID , SUB_DOM_ID , NAME , DESCRIPTION , SEQ_NO , DEL_FLG , ORGL_USER , ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}, {8} , {9} ).
+        /// </summary>
+        internal static string InsertQuestionItem {
+            get {
+                return ResourceManager.GetString("InsertQuestionItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO SUB_DOMAIN (DOM_ID, NAME , DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}).
+        /// </summary>
+        internal static string InsertSubDomain {
+            get {
+                return ResourceManager.GetString("InsertSubDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO SUB_QUESTION_CATEGORY ( QC_ID , DOM_ID , SUB_DOM_ID , NAME , DESCRIPTION , SEQ_NO , DEL_FLG , ORGL_USER , ORGL_STAMP ) VALUES( {0} , {1} , {2},  {3} , {4} , {5}, {6}, {7}, {8} ).
+        /// </summary>
+        internal static string InsertSubQuestionCategory {
+            get {
+                return ResourceManager.GetString("InsertSubQuestionCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE CONTROL_MASTER SET CONTROL_TYP={0} ,  NAME={1} , LABEL={2} , SAMPLE_PIC={3} , UPDT_USER={4} , UPDT_STAMP={5} WHERE  CM_ID={6}.
+        /// </summary>
+        internal static string UpdateControlMaster {
+            get {
+                return ResourceManager.GetString("UpdateControlMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE DOMAIN SET NAME={0}   , DESCRIPTION={1}, UPDT_USER={2}  , UPDT_STAMP={3} WHERE  DOM_ID={4}.
+        /// </summary>
+        internal static string UpdateDomain {
+            get {
+                return ResourceManager.GetString("UpdateDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE QUESTION_CATEGORY SET DOM_ID={0} , SUB_DOM_ID={1} , NAME={2} , DESCRIPTION={3} , SEQ_NO={4} , UPDT_USER={5} , UPDT_STAMP={6} WHERE  QC_ID={7}.
+        /// </summary>
+        internal static string UpdateQuestionCategory {
+            get {
+                return ResourceManager.GetString("UpdateQuestionCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE QUESTION_CONTROL SET QI_ID={0} , SQC_ID={1} , QC_ID={2} , DOM_ID={3} , SUB_DOM_ID={4} , NAME={5} , LABEL={6} , HINT={7} , OTHDESC={8} , LISTOFVAL={9} , CONTROL_ID={10} , SEQ_NO={11} , UPDT_USER={12} , UPDT_STAMP={13} WHERE  QCT_ID={14}.
+        /// </summary>
+        internal static string UpdateQuestionControl {
+            get {
+                return ResourceManager.GetString("UpdateQuestionControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE QUESTION_ITEM SET SQC_ID={0} , QC_ID={1} , DOM_ID={2} , SUB_DOM_ID={3} , NAME={4} , DESCRIPTION={5} , SEQ_NO={6} , UPDT_USER={7} , UPDT_STAMP={8} WHERE  QI_ID={9}.
+        /// </summary>
+        internal static string UpdateQuestionItem {
+            get {
+                return ResourceManager.GetString("UpdateQuestionItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE SUB_DOMAIN SET DOM_ID={0} , NAME={1} , DESCRIPTION={2} , UPDT_USER={3} , UPDT_STAMP={4} WHERE  SUB_DOM_ID={5}.
+        /// </summary>
+        internal static string UpdateSubDomain {
+            get {
+                return ResourceManager.GetString("UpdateSubDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE SUB_QUESTION_CATEGORY SET QC_ID={0} , DOM_ID={1} , SUB_DOM_ID={2} , NAME={3} , DESCRIPTION={4} , SEQ_NO={5} , UPDT_USER={6} , UPDT_STAMP={7} WHERE  SQC_ID={8}.
+        /// </summary>
+        internal static string UpdateSubQuestionCategory {
+            get {
+                return ResourceManager.GetString("UpdateSubQuestionCategory", resourceCulture);
             }
         }
     }

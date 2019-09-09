@@ -99,9 +99,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ControlMasterController.cs" />
     <Compile Include="Controllers\DomainController.cs" />
+    <Compile Include="Controllers\SubDomainByDomainController.cs" />
+    <Compile Include="Models\QUESTION_CATEGORY_LIST.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Controllers\QuestionCategoryController.cs" />
-    <Compile Include="Controllers\QuestionControllController.cs" />
+    <Compile Include="Controllers\QuestionControlController.cs" />
     <Compile Include="Controllers\QuestionItemController.cs" />
     <Compile Include="Controllers\SubDomainController.cs" />
     <Compile Include="Controllers\SubQuestionController.cs" />

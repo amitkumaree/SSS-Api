@@ -9,7 +9,7 @@ namespace DocApi.DataLayer
 {
     internal static class MySqlDbConnection
     {
-        static string connectionString = @"Server=98.142.221.58; Database=world02_docrepo; Uid=world02_sss; Pwd=hmd^3kz#MRFE";
+        static string connectionString = @"Server=213.175.201.201; Database=docrepo; Uid=usr; Pwd=zUrf37^7";
         //static string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\POC\MedEasy\App_Data\MedEasyServer.mdf;Integrated Security=True";
 
         public static DbCommand Command(DbConnection connection, string cmdText)
