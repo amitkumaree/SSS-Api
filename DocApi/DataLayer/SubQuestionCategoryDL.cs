@@ -89,7 +89,7 @@ namespace DocApi.DataLayer
                                           sqc.SUB_DOM_ID.HasValue ? Convert.ToString(sqc.SUB_DOM_ID.Value) : "SUB_DOM_ID" ,
                                           string.IsNullOrWhiteSpace(sqc.NAME) ? "NAME" : string.Concat("'", sqc.NAME, "'"),
                                           string.IsNullOrWhiteSpace(sqc.DESCRIPTION) ? "DESCRIPTION" : string.Concat("'", sqc.DESCRIPTION, "'"),
-                                          string.IsNullOrWhiteSpace(Convert.ToString(sqc.SEQ_NO.Value)) ? "SEQ_NO" : Convert.ToString(sqc.SEQ_NO.Value),
+                                          sqc.SEQ_NO.HasValue ? Convert.ToString(sqc.SEQ_NO.Value) : "SEQ_NO",
                                           string.IsNullOrWhiteSpace(sqc.UPDT_USER) ? "UPDT_USER" : string.Concat("'", sqc.UPDT_USER, "'"),
                                           "SYSDATE()",
                                           sqc.SQC_ID.Value
