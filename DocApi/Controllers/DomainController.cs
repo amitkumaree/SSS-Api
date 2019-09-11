@@ -31,7 +31,18 @@ namespace DocApi.Controllers
         //[HttpPost]
         public void Post([FromBody] DOMAIN dm) //For Insert
         {
-             _logicLayer.InsertDomain(dm);
+            if ((dm.DOM_ID.HasValue ? dm.DOM_ID.Value : 0) == 0)
+            {
+                _logicLayer.InsertDomain(dm);
+            }
+            else
+                if (dm.DOM_ID.Value > 0 && (string.IsNullOrWhiteSpace(dm.DEL_FLG) ? "N" : dm.DEL_FLG) == "N")
+            {
+                _logicLayer.UpdateDomain(dm);
+            }
+            else
+                _logicLayer.DeleteDomain(dm.DOM_ID.Value);
+
         }
 
         // PUT: api/Domain/5
