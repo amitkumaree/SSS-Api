@@ -17,9 +17,20 @@ namespace DocApi.Controllers
 
         
         // POST: api/Domain
-        public void Post([FromBody]QUESTION_CONTROL qc)
+        public void Post([FromBody]QUESTION_CONTROL qct)
         {
-            _logicLayer.InsertQuestionControl(qc);
+           if ((qct.QCT_ID.HasValue ? qct.QCT_ID.Value : 0) == 0)
+            {
+                _logicLayer.InsertQuestionControl(qct);
+            }
+            else
+                if (qct.QCT_ID.Value > 0 && (string.IsNullOrWhiteSpace(qct.DEL_FLG) ? "N" : qct.DEL_FLG) == "N")
+            {
+                _logicLayer.UpdateQuestionControl(qct);
+            }
+            else
+                _logicLayer.DeleteQuestionControl(qct.QCT_ID.Value);
+
         }
 
         // PUT: api/Domain/5

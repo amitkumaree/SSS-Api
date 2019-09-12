@@ -22,9 +22,20 @@ namespace DocApi.Controllers
         //}
 
         // POST: api/Domain
-        public void Post([FromBody]SUB_QUESTION_CATEGORY sc)
+        public void Post([FromBody]SUB_QUESTION_CATEGORY sqc)
         {
-            _logicLayer.InsertSubQuestionCategory(sc);
+            if ((sqc.SQC_ID.HasValue ? sqc.SQC_ID.Value : 0) == 0)
+            {
+                _logicLayer.InsertSubQuestionCategory(sqc);
+            }
+            else
+                if (sqc.SQC_ID.Value > 0 && (string.IsNullOrWhiteSpace(sqc.DEL_FLG) ? "N" : sqc.DEL_FLG) == "N")
+            {
+                _logicLayer.UpdateSubQuestionCategory(sqc);
+            }
+            else
+                _logicLayer.DeleteSubQuestionCategory(sqc.SQC_ID.Value);
+
         }
 
         // PUT: api/Domain/5

@@ -18,7 +18,17 @@ namespace DocApi.Controllers
         // POST: api/Domain
         public void Post([FromBody]QUESTION_CATEGORY qc) //insert 
         {
-            _logicLayer.InsertQuestionCategory(qc);
+           if ((qc.QC_ID.HasValue ? qc.QC_ID.Value : 0) == 0)
+            {
+                _logicLayer.InsertQuestionCategory(qc);
+            }
+            else
+                if (qc.QC_ID.Value > 0 && (string.IsNullOrWhiteSpace(qc.DEL_FLG) ? "N" : qc.DEL_FLG) == "N")
+            {
+                _logicLayer.UpdateQuestionCategory(qc);
+            }
+            else
+                _logicLayer.DeleteQuestionCategory(qc.QC_ID.Value);
         }
 
         // PUT: api/Domain/5

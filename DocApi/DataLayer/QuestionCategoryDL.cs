@@ -102,7 +102,7 @@ namespace DocApi.DataLayer
                                           qc.SUB_DOM_ID.Value ,
                                           string.Concat("'", qc.NAME, "'"),
                                           string.Concat("'", qc.DESCRIPTION, "'"),
-                                          qc.SEQ_NO.Value ,
+                                          qc.SEQ_NO.HasValue ? qc.SEQ_NO.Value : 0 ,
                                           string.Concat("'", string.IsNullOrWhiteSpace(qc.DEL_FLG) ? "N" : qc.DEL_FLG, "'"), //dm.DEL_FLG
                                           string.Concat("'", string.IsNullOrWhiteSpace(qc.ORGL_USER) ? "ADMIN" : qc.ORGL_USER, "'"),
                                           "SYSDATE()"

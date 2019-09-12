@@ -22,7 +22,7 @@ namespace DocApi.LogicLayer
 
         internal void InsertDomain(DOMAIN dm)
         {
-             _dac.InsertDomain( dm);
+            _dac.InsertDomain(dm);
         }
 
 

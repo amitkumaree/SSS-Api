@@ -24,7 +24,18 @@ namespace DocApi.Controllers
         // POST: api/Domain
         public void Post([FromBody]CONTROL_MASTER cm)
         {
-            _logicLayer.InsertControlMaster(cm);
+           if ((cm.CM_ID.HasValue ? cm.CM_ID.Value : 0) == 0)
+            {
+                _logicLayer.InsertControlMaster(cm);
+            }
+            else
+                if (cm.CM_ID.Value > 0 && (string.IsNullOrWhiteSpace(cm.DEL_FLG) ? "N" : cm.DEL_FLG) == "N")
+            {
+                _logicLayer.UpdateControlMaster(cm);
+            }
+            else
+                _logicLayer.DeleteControlMaster(cm.CM_ID.Value);
+
         }
 
         // PUT: api/Domain/5

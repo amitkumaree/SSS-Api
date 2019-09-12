@@ -106,7 +106,7 @@
     <Compile Include="Controllers\QuestionControlController.cs" />
     <Compile Include="Controllers\QuestionItemController.cs" />
     <Compile Include="Controllers\SubDomainController.cs" />
-    <Compile Include="Controllers\SubQuestionController.cs" />
+    <Compile Include="Controllers\SubQuestionCategoryController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataLayer\ControlMasterDL.cs" />
     <Compile Include="DataLayer\DomainDL.cs" />

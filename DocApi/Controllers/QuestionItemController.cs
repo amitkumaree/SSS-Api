@@ -18,7 +18,18 @@ namespace DocApi.Controllers
         // POST: api/Domain
         public void Post([FromBody] QUESTION_ITEM qi)
         {
-            _logicLayer.InsertQuestionItem(qi);
+            if ((qi.QI_ID.HasValue ? qi.QI_ID.Value : 0) == 0)
+            {
+                _logicLayer.InsertQuestionItem(qi);
+            }
+            else
+                if (qi.QI_ID.Value > 0 && (string.IsNullOrWhiteSpace(qi.DEL_FLG) ? "N" : qi.DEL_FLG) == "N")
+            {
+                _logicLayer.UpdateQuestionItem(qi);
+            }
+            else
+                _logicLayer.DeleteQuestionItem(qi.QI_ID.Value);
+
         }
 
         // PUT: api/Domain/5
