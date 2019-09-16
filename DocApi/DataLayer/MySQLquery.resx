@@ -151,7 +151,7 @@
     <value>SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER WHERE DEL_FLG='N'</value>
   </data>
   <data name="GetDocumentMaster" xml:space="preserve">
-    <value>SELECT DM_ID , SUB_DOM_ID , CONTENT FROM DOCUMENT_MASTER WHERE SUB_DOM_ID = {0}</value>
+    <value>SELECT DM_ID , SUB_DOM_ID , CONTENT FROM DOCUMENT_MASTER WHERE SUB_DOM_ID = {0} AND DEL_FLG='N'</value>
   </data>
   <data name="GetDomain" xml:space="preserve">
     <value>SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}  AND DEL_FLG='N'</value>
@@ -167,6 +167,9 @@
   </data>
   <data name="GetQuestionItem" xml:space="preserve">
     <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM WHERE  SQC_ID={0}  AND DEL_FLG='N'</value>
+  </data>
+  <data name="GetQuestionItemBySubDomain" xml:space="preserve">
+    <value>SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID , NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM WHERE  SUB_DOM_ID={0}  AND DEL_FLG='N'</value>
   </data>
   <data name="GetSubDomainByDomId" xml:space="preserve">
     <value>SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM SUB_DOMAIN
