@@ -98,8 +98,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ControlMasterController.cs" />
+    <Compile Include="Controllers\DocumentMasterController.cs" />
     <Compile Include="Controllers\DomainController.cs" />
     <Compile Include="Controllers\SubDomainByDomainController.cs" />
+    <Compile Include="DataLayer\DocumentMasterDL.cs" />
+    <Compile Include="LogicLayer\DocumentMasterLL.cs" />
+    <Compile Include="Models\DOCUMENT_MASTER.cs" />
     <Compile Include="Models\QUESTION_CATEGORY_LIST.cs" />
     <Compile Include="Models\ParentModel.cs" />
     <Compile Include="Controllers\QuestionCategoryController.cs" />

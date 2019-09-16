@@ -120,6 +120,9 @@
   <data name="DeleteControlMaster" xml:space="preserve">
     <value>UPDATE CONTROL_MASTER SET DEL_FLG='Y' WHERE  CM_ID= {0}</value>
   </data>
+  <data name="DeleteDocumentMaster" xml:space="preserve">
+    <value>UPDATE DOCUMENT_MASTER SET DEL_FLG='Y' WHERE DM_ID={0}</value>
+  </data>
   <data name="DeleteDomain" xml:space="preserve">
     <value>UPDATE DOMAIN SET DEL_FLG='Y' WHERE DOM_ID={0}</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="GetControlMaster" xml:space="preserve">
     <value>SELECT  CM_ID , CONTROL_TYP, NAME, LABEL, SAMPLE_PIC, DEL_FLG, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP FROM CONTROL_MASTER WHERE DEL_FLG='N'</value>
   </data>
+  <data name="GetDocumentMaster" xml:space="preserve">
+    <value>SELECT DM_ID , SUB_DOM_ID , CONTENT FROM DOCUMENT_MASTER WHERE SUB_DOM_ID = {0}</value>
+  </data>
   <data name="GetDomain" xml:space="preserve">
     <value>SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}  AND DEL_FLG='N'</value>
   </data>
@@ -172,6 +178,9 @@ WHERE DOM_ID={0} AND DEL_FLG='N'</value>
   <data name="InsertControlMaster" xml:space="preserve">
     <value>INSERT INTO CONTROL_MASTER ( CONTROL_TYP,NAME,  LABEL , SAMPLE_PIC , DEL_FLG  ,  ORGL_USER, ORGL_STAMP  ) VALUES(  {0} , {1} , {2},  {3} , {4} , {5}, {6})</value>
   </data>
+  <data name="InsertDocumentMaster" xml:space="preserve">
+    <value>INSERT INTO DOCUMENT_MASTER( SUB_DOM_ID , CONTENT, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2} , {3} , {4} )</value>
+  </data>
   <data name="InsertDomain" xml:space="preserve">
     <value>INSERT INTO DOMAIN(NAME, DESCRIPTION, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2},  {3} , {4})</value>
   </data>
@@ -192,6 +201,9 @@ WHERE DOM_ID={0} AND DEL_FLG='N'</value>
   </data>
   <data name="UpdateControlMaster" xml:space="preserve">
     <value>UPDATE CONTROL_MASTER SET CONTROL_TYP={0} ,  NAME={1} , LABEL={2} , SAMPLE_PIC={3} , UPDT_USER={4} , UPDT_STAMP={5} WHERE  CM_ID={6}</value>
+  </data>
+  <data name="UpdateDocumentMaster" xml:space="preserve">
+    <value>UPDATE DOCUMENT_MASTER SET SUB_DOM_ID={0} , CONTENT={1} , UPDT_USER={2} , UPDT_STAMP={3}  WHERE  DM_ID={4}</value>
   </data>
   <data name="UpdateDomain" xml:space="preserve">
     <value>UPDATE DOMAIN SET NAME={0}   , DESCRIPTION={1}, UPDT_USER={2}  , UPDT_STAMP={3} WHERE  DOM_ID={4}</value>
