@@ -70,6 +70,15 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UPDATE DOCUMENT_MASTER SET DEL_FLG=&apos;Y&apos; WHERE DM_ID={0}.
+        /// </summary>
+        internal static string DeleteDocumentMaster {
+            get {
+                return ResourceManager.GetString("DeleteDocumentMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPDATE DOMAIN SET DEL_FLG=&apos;Y&apos; WHERE DOM_ID={0}.
         /// </summary>
         internal static string DeleteDomain {
@@ -151,6 +160,15 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT DM_ID , SUB_DOM_ID , CONTENT FROM DOCUMENT_MASTER WHERE SUB_DOM_ID = {0} AND DEL_FLG=&apos;N&apos;.
+        /// </summary>
+        internal static string GetDocumentMaster {
+            get {
+                return ResourceManager.GetString("GetDocumentMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT DOM_ID,NAME,DESCRIPTION, ORGL_STAMP, ORGL_USER, UPDT_STAMP, UPDT_USER, DEL_FLG FROM DOMAIN WHERE DOM_ID = {0}  AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetDomain {
@@ -196,6 +214,15 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID , NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM WHERE  SUB_DOM_ID={0}  AND DEL_FLG=&apos;N&apos; .
+        /// </summary>
+        internal static string GetQuestionItemBySubDomain {
+            get {
+                return ResourceManager.GetString("GetQuestionItemBySubDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT SUB_DOM_ID, DOM_ID, NAME, DESCRIPTION, ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM SUB_DOMAIN
         ///WHERE DOM_ID={0} AND DEL_FLG=&apos;N&apos;.
         /// </summary>
@@ -220,6 +247,15 @@ namespace DocApi.DataLayer {
         internal static string InsertControlMaster {
             get {
                 return ResourceManager.GetString("InsertControlMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO DOCUMENT_MASTER( SUB_DOM_ID , CONTENT, DEL_FLG, ORGL_USER, ORGL_STAMP) values( {0} , {1} , {2} , {3} , {4} ).
+        /// </summary>
+        internal static string InsertDocumentMaster {
+            get {
+                return ResourceManager.GetString("InsertDocumentMaster", resourceCulture);
             }
         }
         
@@ -283,6 +319,15 @@ namespace DocApi.DataLayer {
         internal static string UpdateControlMaster {
             get {
                 return ResourceManager.GetString("UpdateControlMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE DOCUMENT_MASTER SET SUB_DOM_ID={0} , CONTENT={1} , UPDT_USER={2} , UPDT_STAMP={3}  WHERE  DM_ID={4}.
+        /// </summary>
+        internal static string UpdateDocumentMaster {
+            get {
+                return ResourceManager.GetString("UpdateDocumentMaster", resourceCulture);
             }
         }
         
