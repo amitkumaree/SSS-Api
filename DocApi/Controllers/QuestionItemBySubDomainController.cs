@@ -9,26 +9,43 @@ namespace DocApi.Controllers
     public class QuestionItemBySubDomainController : ApiController
     {
         QuestionItemBySubDomainLL _logicLayer = new QuestionItemBySubDomainLL();
-        // GET: api/Domain
+        // GET: api/QuestionItemBySubDomain
+        /// <summary>
+        /// It takes the SUB_DOM_ID as parameter and returns corresponding QUESTION_ITEM info as List
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<QUESTION_ITEM> Get(int id)
         {
             return _logicLayer.GetAllQuestionItem(id);
         }
 
-        // POST: api/Domain
+        // POST: api/QuestionItemBySubDomain
+        /// <summary>
+        /// Not defined
+        /// </summary>
+        /// <param name="qi"></param>
         public void Post([FromBody] QUESTION_ITEM qi)
         {
              
 
         }
 
-        // PUT: api/Domain/5
+        // PUT: api/QuestionItemBySubDomain/5
+        /// <summary>
+        /// Not Defined
+        /// </summary>
+        /// <param name="qi"></param>
         public void Put([FromBody]QUESTION_ITEM qi)
         {
             
         }
 
-        // DELETE: api/Domain/5
+        // DELETE: api/QuestionItemBySubDomain/5
+        /// <summary>
+        /// Not Defined
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             

@@ -9,14 +9,26 @@ namespace DocApi.Controllers
     public class QuestionControlController : ApiController
     {
         QuestionControlLL _logicLayer = new QuestionControlLL();
-        // GET: api/Domain
+        // GET: api/QuestionControl
+        /// <summary>
+        /// It takes the parameter QUESTION_ITEM_ID and returns corresponding QUESTION_CONTROL info as List
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<QUESTION_CONTROL> Get(int id)
         {
             return _logicLayer.GetAllQuestionControl(id);
         }
 
-        
-        // POST: api/Domain
+
+        // POST: api/QuestionControl
+        /// <summary>
+        /// It takes the parameter QUESTION_CONTROL model type.
+        /// If QUESTION_CONTROL.QCT_ID = 0 or NULL then it performs INSERT
+        /// If QUESTION_CONTROL.QCT_ID > 0 and QUESTION_CONTROL.DEL_FLG=N then it performs UPDATE
+        /// If QUESTION_CONTROL.DEL_FLG=Y then it performs DELETE
+        /// </summary>
+        /// <param name="qct"></param>
         public void Post([FromBody]QUESTION_CONTROL qct)
         {
            if ((qct.QCT_ID.HasValue ? qct.QCT_ID.Value : 0) == 0)

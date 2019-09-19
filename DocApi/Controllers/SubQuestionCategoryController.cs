@@ -9,19 +9,25 @@ namespace DocApi.Controllers
     public class SubQuestionCategoryController : ApiController
     {
         SubQuestionCategoryLL _logicLayer = new SubQuestionCategoryLL();
-        // GET: api/Domain
+        // GET: api/SubQuestionCategory
+        /// <summary>
+        /// It takes one parameter QUESTION_CATEGORY_ID and returns SUB_QUESTION_CATEGORY info as List
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<SUB_QUESTION_CATEGORY> Get(int id)
         {
             return _logicLayer.GetAllSubQuestionCategory(id);
         }
 
-        //// GET: api/Domain/5
-        //public SUB_QUESTION_CATEGORY Get(int id)
-        //{
-        //    return null;
-        //}
-
-        // POST: api/Domain
+        // POST: api/SubQuestionCategory
+        /// <summary>
+        /// It takes the parameter SUB_QUESTION_CATEGORY model type .
+        /// If SUB_QUESTION_CATEGORY.SQC_ID = 0 or NULL then it performs INSERT
+        /// If SUB_QUESTION_CATEGORY.SQC_ID > 0 and SUB_QUESTION_CATEGORY.DEL_FLG=N then it performs UPDATE
+        /// If SUB_QUESTION_CATEGORY.DEL_FLG=Y then it performs DELETE
+        /// </summary>
+        /// <param name="sqc"></param>
         public void Post([FromBody]SUB_QUESTION_CATEGORY sqc)
         {
             if ((sqc.SQC_ID.HasValue ? sqc.SQC_ID.Value : 0) == 0)
