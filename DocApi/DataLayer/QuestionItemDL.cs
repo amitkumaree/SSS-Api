@@ -9,12 +9,14 @@ namespace DocApi.DataLayer
     internal sealed class QuestionItemDL
     {
         string _statement;
-        internal List<QUESTION_ITEM> GetAllQuestionItem(int sqcId)
+        internal List<QUESTION_ITEM> GetQuestionItem(int sqcId)
         {
             var QuestionItem = new List<QUESTION_ITEM>();
             using (var connection = MySqlDbConnection.NewConnection)
             {
-                _statement = string.Format(MySQLquery.GetQuestionItem , sqcId);
+                _statement = string.Format(MySQLquery.GetQuestionItem ,
+                                           sqcId > 0 ? Convert.ToString(sqcId) : "SQC_ID"); 
+                                           //sqcId);
                 using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
                     using (var reader = command.ExecuteReader())

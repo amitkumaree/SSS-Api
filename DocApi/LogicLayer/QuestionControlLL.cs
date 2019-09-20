@@ -11,9 +11,9 @@ namespace DocApi.LogicLayer
     {
         private QuestionControlDL _dac = new QuestionControlDL();
 
-        internal List<QUESTION_CONTROL> GetAllQuestionControl(int qiId)
+        internal List<QUESTION_CONTROL> GetQuestionControl(int qiId)
         {
-            return _dac.GetAllQuestionControl(qiId);
+            return _dac.GetQuestionControl(qiId);
         }
 
 

@@ -15,9 +15,16 @@ namespace DocApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<SUB_QUESTION_CATEGORY> Get(int id)
+        public List<SUB_QUESTION_CATEGORY> Get(int? id)
         {
-            return _logicLayer.GetAllSubQuestionCategory(id);
+            int val;
+
+            if (id.HasValue)
+                val = id.Value;
+            else
+                val = 0;
+
+            return _logicLayer.GetSubQuestionCategory(val);
         }
 
         // POST: api/SubQuestionCategory

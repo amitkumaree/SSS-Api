@@ -9,7 +9,7 @@ namespace DocApi.DataLayer
     internal sealed class QuestionItemBySubDomainDL
     {
         string _statement;
-        internal List<QUESTION_ITEM> GetAllQuestionItem(int subDomainId)
+        internal List<QUESTION_ITEM> GetQuestionItem(int subDomainId)
         {
             var QuestionItem = new List<QUESTION_ITEM>();
             using (var connection = MySqlDbConnection.NewConnection)

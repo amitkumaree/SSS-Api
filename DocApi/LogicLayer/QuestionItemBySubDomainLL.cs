@@ -13,7 +13,7 @@ namespace DocApi.LogicLayer
 
         internal List<QUESTION_ITEM> GetAllQuestionItem(int subDomId)
         {
-            return _dac.GetAllQuestionItem(subDomId);
+            return _dac.GetQuestionItem(subDomId);
         }
 
     }

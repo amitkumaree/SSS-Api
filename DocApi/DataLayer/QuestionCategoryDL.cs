@@ -9,7 +9,7 @@ namespace DocApi.DataLayer
     internal sealed class QuestionCategoryDL
     {
         string _statement;
-        internal List<QUESTION_CATEGORY> GetAllQuestionCategory(int subDomId)
+        internal List<QUESTION_CATEGORY> GetQuestionCategory(int subDomId)
         {
             var questionCategory = new List<QUESTION_CATEGORY>();
             using (var connection = MySqlDbConnection.NewConnection)
@@ -49,48 +49,48 @@ namespace DocApi.DataLayer
         }
 
 
-        internal QUESTION_CATEGORY_LIST GetQuestionCategory(int subDomId)
-        {
-            var questionCategoryList = new QUESTION_CATEGORY_LIST();
+        //internal question_category_list getquestioncategory(int subdomid)
+        //{
+        //    var questioncategorylist = new question_category_list();
 
-            var questionCategory = new List<QUESTION_CATEGORY>();
-            using (var connection = MySqlDbConnection.NewConnection)
-            {
-                _statement = string.Format(MySQLquery.GetQuestionCatBySubDomId , subDomId);
-                using (var command = MySqlDbConnection.Command(connection, _statement))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                var questCat = new QUESTION_CATEGORY();
+        //    var questioncategory = new list<question_category>();
+        //    using (var connection = mysqldbconnection.newconnection)
+        //    {
+        //        _statement = string.format(mysqlquery.getquestioncatbysubdomid , subdomid);
+        //        using (var command = mysqldbconnection.command(connection, _statement))
+        //        {
+        //            using (var reader = command.executereader())
+        //            {
+        //                if (reader.hasrows)
+        //                {
+        //                    while (reader.read())
+        //                    {
+        //                        var questcat = new question_category();
 
-                                questCat.QC_ID = UtilityDL.CheckNull<int>(reader["QC_ID"]);
-                                questCat.DOM_ID = UtilityDL.CheckNull<int>(reader["DOM_ID"]);
-                                questCat.SUB_DOM_ID = UtilityDL.CheckNull<int>(reader["SUB_DOM_ID"]);
-                                questCat.NAME = UtilityDL.CheckNull<string>(reader["NAME"]);
-                                questCat.DESCRIPTION = UtilityDL.CheckNull<string>(reader["DESCRIPTION"]);
-                                questCat.SEQ_NO = UtilityDL.CheckNull<int>(reader["SEQ_NO"]);
+        //                        questcat.qc_id = utilitydl.checknull<int>(reader["qc_id"]);
+        //                        questcat.dom_id = utilitydl.checknull<int>(reader["dom_id"]);
+        //                        questcat.sub_dom_id = utilitydl.checknull<int>(reader["sub_dom_id"]);
+        //                        questcat.name = utilitydl.checknull<string>(reader["name"]);
+        //                        questcat.description = utilitydl.checknull<string>(reader["description"]);
+        //                        questcat.seq_no = utilitydl.checknull<int>(reader["seq_no"]);
 
-                                questCat.ORGL_STAMP = UtilityDL.CheckNull<DateTime>(reader["ORGL_STAMP"]);
-                                questCat.ORGL_USER = UtilityDL.CheckNull<string>(reader["ORGL_USER"]);
-                                questCat.UPDT_STAMP = UtilityDL.CheckNull<DateTime>(reader["UPDT_STAMP"]);
-                                questCat.UPDT_USER = UtilityDL.CheckNull<string>(reader["UPDT_USER"]);
-                                questCat.DEL_FLG = UtilityDL.CheckNull<string>(reader["DEL_FLG"]);
+        //                        questcat.orgl_stamp = utilitydl.checknull<datetime>(reader["orgl_stamp"]);
+        //                        questcat.orgl_user = utilitydl.checknull<string>(reader["orgl_user"]);
+        //                        questcat.updt_stamp = utilitydl.checknull<datetime>(reader["updt_stamp"]);
+        //                        questcat.updt_user = utilitydl.checknull<string>(reader["updt_user"]);
+        //                        questcat.del_flg = utilitydl.checknull<string>(reader["del_flg"]);
 
-                                questionCategory.Add(questCat);
-                            }
-                        }
-                    }
-                }
-            }
+        //                        questioncategory.add(questcat);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
 
-            questionCategoryList.QuestionCategory = questionCategory;
+        //    questioncategorylist.questioncategory = questioncategory;
 
-            return questionCategoryList; // questionCategory;
-        }
+        //    return questioncategorylist; // questioncategory;
+        //}
 
 
         internal void InsertQuestionCategory(QUESTION_CATEGORY qc)

@@ -13,7 +13,7 @@ namespace DocApi.LogicLayer
 
         internal List<QUESTION_ITEM> GetAllQuestionItem(int sqcId)
         {
-            return _dac.GetAllQuestionItem(sqcId);
+            return _dac.GetQuestionItem(sqcId);
         }
 
         internal void InsertQuestionItem(QUESTION_ITEM qi)

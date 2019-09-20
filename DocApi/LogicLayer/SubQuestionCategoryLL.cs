@@ -11,9 +11,9 @@ namespace DocApi.LogicLayer
     {
         private SubQuestionCategoryDL _dac = new SubQuestionCategoryDL();
 
-        internal List<SUB_QUESTION_CATEGORY> GetAllSubQuestionCategory(int qcId)
+        internal List<SUB_QUESTION_CATEGORY> GetSubQuestionCategory(int qcId)
         {
-            return _dac.GetAllSubQuestionCategory(qcId);
+            return _dac.GetSubQuestionCategory(qcId);
         }
 
         internal void InsertSubQuestionCategory(SUB_QUESTION_CATEGORY sqcId)

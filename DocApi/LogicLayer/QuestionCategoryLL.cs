@@ -11,15 +11,15 @@ namespace DocApi.LogicLayer
     {
         private QuestionCategoryDL _dac = new QuestionCategoryDL();
 
-        internal List<QUESTION_CATEGORY> GetAllQuestionCategory(int subDomId)
-        {
-            return _dac.GetAllQuestionCategory(subDomId);
-        }
-
-        internal QUESTION_CATEGORY_LIST GetQuestionCategory(int subDomId)
+        internal List<QUESTION_CATEGORY> GetQuestionCategory(int subDomId)
         {
             return _dac.GetQuestionCategory(subDomId);
         }
+
+        //internal QUESTION_CATEGORY_LIST GetQuestionCategory(int subDomId)
+        //{
+        //    return _dac.GetQuestionCategory(subDomId);
+        //}
 
 
         internal void InsertQuestionCategory(QUESTION_CATEGORY qc)

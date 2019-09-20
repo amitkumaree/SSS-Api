@@ -15,9 +15,16 @@ namespace DocApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<QUESTION_CONTROL> Get(int id)
+        public List<QUESTION_CONTROL> Get(int? id)
         {
-            return _logicLayer.GetAllQuestionControl(id);
+            int val;
+
+            if (id.HasValue)
+                val = id.Value;
+            else
+                val = 0;
+
+                return _logicLayer.GetQuestionControl(val);
         }
 
 

@@ -17,7 +17,7 @@ namespace DocApi.Controllers
         /// <returns></returns>
         public List<QUESTION_CATEGORY> Get(int id)
         {
-            return _logicLayer.GetAllQuestionCategory(id);
+            return _logicLayer.GetQuestionCategory(id);
         }
 
         // POST: api/QuestionCategory

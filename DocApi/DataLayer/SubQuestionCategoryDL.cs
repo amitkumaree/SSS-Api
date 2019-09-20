@@ -9,12 +9,14 @@ namespace DocApi.DataLayer
     internal sealed class SubQuestionCategoryDL
     {
         string _statement;
-        internal List<SUB_QUESTION_CATEGORY> GetAllSubQuestionCategory(int qcId)
+        internal List<SUB_QUESTION_CATEGORY> GetSubQuestionCategory(int qcId)
         {
             var SubQuestionCategory = new List<SUB_QUESTION_CATEGORY>();
             using (var connection = MySqlDbConnection.NewConnection)
             {
-                _statement = string.Format(MySQLquery.GetSubQuestionCat, qcId);
+                _statement = string.Format(MySQLquery.GetSubQuestionCat,
+                                           qcId > 0 ? Convert.ToString(qcId) : "QC_ID");
+                //qcId);
                 using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
                     using (var reader = command.ExecuteReader())

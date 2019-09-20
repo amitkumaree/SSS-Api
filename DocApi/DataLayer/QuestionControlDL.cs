@@ -9,12 +9,14 @@ namespace DocApi.DataLayer
     internal sealed class QuestionControlDL
     {
         string _statement;
-        internal List<QUESTION_CONTROL> GetAllQuestionControl(int qiId)
+        internal List<QUESTION_CONTROL> GetQuestionControl(int qiId)
         {
             var QuestionControl = new List<QUESTION_CONTROL>();
             using (var connection = MySqlDbConnection.NewConnection)
             {
-                _statement = string.Format(MySQLquery.GetQuestionControl, qiId);
+                _statement = string.Format(MySQLquery.GetQuestionControl,
+                                           qiId > 0 ? Convert.ToString(qiId) : "QI_ID");
+                                          //qiId);
                 using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
                     using (var reader = command.ExecuteReader())
