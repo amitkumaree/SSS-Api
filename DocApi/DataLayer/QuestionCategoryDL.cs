@@ -14,7 +14,9 @@ namespace DocApi.DataLayer
             var questionCategory = new List<QUESTION_CATEGORY>();
             using (var connection = MySqlDbConnection.NewConnection)
             {
-                _statement = string.Format(MySQLquery.GetQuestionCat, subDomId);
+                _statement = string.Format(MySQLquery.GetQuestionCat,
+                                           subDomId > 0 ? Convert.ToString(subDomId) : "SUB_DOM_ID");
+
                 using (var command = MySqlDbConnection.Command(connection, _statement))
                 {
                     using (var reader = command.ExecuteReader())

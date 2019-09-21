@@ -7,7 +7,7 @@ namespace DocApi.Controllers
 {
     public class SubQuestionCategoryAndChildsController : ApiController
     {
-        SubQuestionCategoryAndChildsControllerLL _logiclayer = new SubQuestionCategoryAndChildsControllerLL();
+        SubQuestionCategoryAndChildsLL _logiclayer = new SubQuestionCategoryAndChildsLL();
         //get: api/subquestioncategoryandchilds/5
         public List<SUB_QUESTION_CATEGORY_AND_CHILD> get(int id)
         {
