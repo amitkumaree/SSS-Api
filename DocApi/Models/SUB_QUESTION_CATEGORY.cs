@@ -20,6 +20,14 @@ namespace DocApi.Models
         public DateTime? ORGL_STAMP { get; set; }
         public DateTime? UPDT_STAMP { get; set; }
 
+
+        public bool Visibile { get; }
+        public SUB_QUESTION_CATEGORY()
+        {
+            this.Visibile = false;
+        }
+
+
     }
 
 }

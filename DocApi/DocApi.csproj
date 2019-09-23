@@ -105,9 +105,11 @@
     <Compile Include="Controllers\SubDomainByDomainController.cs" />
     <Compile Include="Controllers\SubQuestionCategoryAndChildsController.cs" />
     <Compile Include="DataLayer\DocumentMasterDL.cs" />
+    <Compile Include="DataLayer\QuestionControlAndControlMasterDL.cs" />
     <Compile Include="DataLayer\QuestionItemBySubDomainDL.cs" />
     <Compile Include="LogicLayer\DocumentMasterLL.cs" />
     <Compile Include="LogicLayer\QuestionCategoryAndChildsLL.cs" />
+    <Compile Include="LogicLayer\QuestionControlAndMasterLL.cs" />
     <Compile Include="LogicLayer\QuestionItemBySubDomainLL.cs" />
     <Compile Include="LogicLayer\SubQuestionCategoryAndChildsLL.cs" />
     <Compile Include="Models\DOCUMENT_MASTER.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Models\DOMAIN.cs" />
     <Compile Include="Models\QUESTION_CATEGORY.cs" />
     <Compile Include="Models\QUESTION_CONTROL.cs" />
+    <Compile Include="Models\QUESTION_CONTROL_AND_CONTROL_MASTER.cs" />
     <Compile Include="Models\QUESTION_ITEM.cs" />
     <Compile Include="Models\QUESTION_ITEM_AND_CHILD.cs" />
     <Compile Include="Models\SUB_DOMAIN.cs" />

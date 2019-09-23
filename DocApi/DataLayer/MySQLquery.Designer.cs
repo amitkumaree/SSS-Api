@@ -205,6 +205,21 @@ namespace DocApi.DataLayer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Q.QCT_ID, Q.QI_ID , Q.SQC_ID, Q.QC_ID, Q.DOM_ID , Q.SUB_DOM_ID , Q.NAME , Q.LABEL, Q.HINT , Q.OTHDESC , Q.LISTOFVAL , Q.CONTROL_ID , Q.SEQ_NO , Q.DEL_FLG ,
+        ///       C.CONTROL_TYP , C.NAME CONTROL_NAME , C.LABEL CONTROL_LABEL, C.SAMPLE_PIC
+        ///FROM QUESTION_CONTROL Q , CONTROL_MASTER C 
+        ///WHERE Q.QI_ID={0}  
+        ///AND Q.DEL_FLG=&apos;N&apos;
+        ///AND Q.CONTROL_ID = C.CM_ID
+        ///AND C.DEL_FLG=&apos;N&apos;.
+        /// </summary>
+        internal static string GetQuestionControlAndMaster {
+            get {
+                return ResourceManager.GetString("GetQuestionControlAndMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT QI_ID, SQC_ID, QC_ID, DOM_ID, SUB_DOM_ID, NAME, DESCRIPTION, SEQ_NO ,ORGL_USER, ORGL_STAMP, UPDT_USER, UPDT_STAMP , DEL_FLG FROM QUESTION_ITEM WHERE  SQC_ID={0}  AND DEL_FLG=&apos;N&apos;.
         /// </summary>
         internal static string GetQuestionItem {

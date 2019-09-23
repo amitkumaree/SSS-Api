@@ -12,12 +12,12 @@ namespace DocApi.LogicLayer
         private List<QUESTION_CATEGORY> QUESTION_CATEGORY_LIST = new List<QUESTION_CATEGORY>();
         private List<SUB_QUESTION_CATEGORY> SUB_QUESTION_CATEGORY_LIST = new List<SUB_QUESTION_CATEGORY>();
         private List<QUESTION_ITEM> QUESTION_ITEM_LIST = new List<QUESTION_ITEM>();
-        private List<QUESTION_CONTROL> QUESTION_CONTROL_LIST = new List<QUESTION_CONTROL>();
+        private List<QUESTION_CONTROL_AND_CONTROL_MASTER> QUESTION_CONTROL_AND_CONTROL_MASTER_LIST = new List<QUESTION_CONTROL_AND_CONTROL_MASTER>();
 
         private QuestionCategoryDL _dacQCa = new QuestionCategoryDL();
         private SubQuestionCategoryDL _dacSQC = new SubQuestionCategoryDL();
         private QuestionItemDL _dacQI = new QuestionItemDL();
-        private QuestionControlDL _dacQC = new QuestionControlDL();
+        private QuestionControlAndControlMasterDL _dacQC = new QuestionControlAndControlMasterDL();
 
 
 
@@ -38,7 +38,7 @@ namespace DocApi.LogicLayer
             QUESTION_CATEGORY_LIST = _dacQCa.GetQuestionCategory(subDomId);
             SUB_QUESTION_CATEGORY_LIST = _dacSQC.GetSubQuestionCategory(0);
             QUESTION_ITEM_LIST = _dacQI.GetQuestionItem(0);
-            QUESTION_CONTROL_LIST = _dacQC.GetQuestionControl(0);
+            QUESTION_CONTROL_AND_CONTROL_MASTER_LIST = _dacQC.GetQuestionControlAndMaster(0);
 
             foreach (var q in QUESTION_CATEGORY_LIST)
             {
@@ -65,11 +65,11 @@ namespace DocApi.LogicLayer
 
                         qic.QUESTION_ITEM = qi;
 
-                        var questionControls = (from qcl in QUESTION_CONTROL_LIST
+                        var questionControls = (from qcl in QUESTION_CONTROL_AND_CONTROL_MASTER_LIST
                                                 where qcl.QI_ID == qi.QI_ID
                                                 select qcl).ToList();
 
-                        qic.QUESTION_CONTROLs.AddRange(questionControls);
+                        qic.QUESTION_CONTROL_AND_CONTROL_MASTERs.AddRange(questionControls);
 
                         qics.Add(qic);
                     }
