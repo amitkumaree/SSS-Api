@@ -30,7 +30,8 @@ namespace DocApi.LogicLayer
             List<SUB_QUESTION_CATEGORY_AND_CHILD> sqcs = new List<SUB_QUESTION_CATEGORY_AND_CHILD>();
             SUB_QUESTION_CATEGORY_AND_CHILD sqc;
 
-            List<QUESTION_ITEM_AND_CHILD> qics = new List<QUESTION_ITEM_AND_CHILD>();
+            //List<QUESTION_ITEM_AND_CHILD> qics = new List<QUESTION_ITEM_AND_CHILD>();
+            List<QUESTION_ITEM_AND_CHILD> qics ;
             QUESTION_ITEM_AND_CHILD qic;
 
 
@@ -57,6 +58,7 @@ namespace DocApi.LogicLayer
                                          where qil.SQC_ID == s.SQC_ID
                                          select qil).ToList();
 
+                    qics = new List<QUESTION_ITEM_AND_CHILD>();
                     foreach (var qi in questionItems)
                     {
                         qic = new QUESTION_ITEM_AND_CHILD();
